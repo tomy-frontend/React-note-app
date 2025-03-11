@@ -1,10 +1,13 @@
 import "./App.css";
+import Main from "./components/Main";
+import Sidebar from "./components/Sidebar";
 
 function App() {
   return (
-    <>
-      <h2>Note App</h2>
-    </>
+    <div className="App">
+      <Sidebar />
+      <Main />
+    </div>
   );
 }
 
