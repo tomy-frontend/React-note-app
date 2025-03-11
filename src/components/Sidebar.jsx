@@ -1,23 +1,36 @@
 import React from "react";
 import "./Sidebar.css";
 
-const Sidebar = () => {
+const Sidebar = ({ onAddNote, notes }) => {
   return (
     <div className="app-sidebar">
       <div className="app-sidebar-header">
         <h1>ノート</h1>
-        <button>追加</button>
+        <button onClick={onAddNote}>追加</button>
       </div>
 
       <div className="app-sidebar-notes">
-        <div className="app-sidebar-note">
-          <div className="sidebar-note-title">
-            <strong>タイトル</strong>
-            <button>削除</button>
-          </div>
-          <p>ノートの内容です。</p>
-          <small>最後の修正日:2025/03/11</small>
-        </div>
+        {notes.map((note) => {
+          return (
+            <article key={note.id} className="app-sidebar-note">
+              <div className="sidebar-note-title">
+                <strong>{note.title}</strong>
+                <button>削除</button>
+              </div>
+              <p>{note.content}</p>
+              <small>
+                最後の修正日:
+                {new Date(note.modDate).toLocaleString("ja-JP", {
+                  year: "numeric",
+                  month: "numeric",
+                  day: "numeric",
+                  hour: "2-digit",
+                  minute: "2-digit",
+                })}
+              </small>
+            </article>
+          );
+        })}
       </div>
     </div>
   );
