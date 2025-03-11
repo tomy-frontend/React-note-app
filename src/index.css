@@ -23,6 +23,6 @@ a:hover {
 body {
   margin: 0;
   padding: 0;
-  display: flex;
   overflow-x: hidden;
+  background: rgb(226, 226, 246);
 }
