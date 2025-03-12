@@ -48,6 +48,10 @@ button {
   }
 }
 
+.app-sidebar-note.active {
+  background: #dffbd8;
+}
+
 .sidebar-note-title {
   display: flex;
   justify-content: space-between;

@@ -6,6 +6,8 @@ import uuid from "react-uuid";
 
 function App() {
   const [notes, setNotes] = useState([]); // 作成したnoteを保存する配列
+  const [activeNote, setActiveNote] = useState(false); // noteのアクティブ状態を管理する配列
+  console.log(activeNote);
 
   // 新規note作成
   const onAddNote = () => {
@@ -38,6 +40,8 @@ function App() {
         onAddNote={onAddNote}
         onDeleteNote={onDeleteNote}
         notes={notes}
+        activeNote={activeNote}
+        setActiveNote={setActiveNote}
       />
       <Main />
     </div>
