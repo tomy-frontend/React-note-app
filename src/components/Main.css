@@ -44,3 +44,14 @@
   padding: 0 25px 25px 25px;
   line-height: 2rem;
 }
+
+/* アクティブなノートがない時 */
+.no-active-note {
+  width: 100%;
+  height: 100dvh;
+  line-height: 100dvh;
+  text-align: center;
+  font-size: 1.5rem;
+  color: #999;
+  font-weight: 600;
+}

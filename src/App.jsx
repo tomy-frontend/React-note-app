@@ -7,7 +7,6 @@ import uuid from "react-uuid";
 function App() {
   const [notes, setNotes] = useState([]); // 作成したnoteを保存する配列
   const [activeNote, setActiveNote] = useState(false); // noteのアクティブ状態を管理する配列
-  console.log(activeNote);
 
   // 新規note作成
   const onAddNote = () => {
@@ -34,6 +33,13 @@ function App() {
     setNotes(filterNotes);
   };
 
+  // アクティブになっているノートを取得する関数
+  const getActiveNote = () => {
+    // notes配列から、note.idがactiveNoteと一致するものだけを１つだけ見つけて、オブジェクトを取り出す
+    // returnでそれを返す
+    return notes.find((note) => note.id === activeNote);
+  };
+
   return (
     <div className="App">
       <Sidebar
@@ -43,7 +49,7 @@ function App() {
         activeNote={activeNote}
         setActiveNote={setActiveNote}
       />
-      <Main />
+      <Main activeNote={getActiveNote()} />
     </div>
   );
 }
