@@ -3,8 +3,16 @@ import "./Main.css";
 
 const Main = () => {
   return (
-    <div>
-      <h2>main</h2>
+    <div className="app-main">
+      <div className="app-main-edit">
+        <input type="text" name="" id="" />
+        <textarea id="" placeholder="ノート内容を記入"></textarea>
+      </div>
+
+      <div className="app-main-note-preview">
+        <h1 className="preview-title">タイトル</h1>
+        <div className="markdown-preview">ノート内容</div>
+      </div>
     </div>
   );
 };
