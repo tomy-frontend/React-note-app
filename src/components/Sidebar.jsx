@@ -8,6 +8,8 @@ const Sidebar = ({
   activeNote,
   setActiveNote,
 }) => {
+  const sortedNotes = notes.sort((a, b) => b.modDate - a.modDate);
+
   return (
     <div className="app-sidebar">
       <div className="app-sidebar-header">
@@ -16,7 +18,7 @@ const Sidebar = ({
       </div>
 
       <div className="app-sidebar-notes">
-        {notes.map((note) => {
+        {sortedNotes.map((note) => {
           return (
             <article
               key={note.id}
