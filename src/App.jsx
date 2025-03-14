@@ -1,12 +1,24 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 import Main from "./components/Main";
 import Sidebar from "./components/Sidebar";
 import uuid from "react-uuid";
 
 function App() {
-  const [notes, setNotes] = useState([]); // 作成したnoteを保存する配列
+  const [notes, setNotes] = useState(
+    JSON.parse(localStorage.getItem("notes")) || []
+  ); // 作成したnoteを保存する配列
   const [activeNote, setActiveNote] = useState(false); // noteのアクティブ状態を管理する配列
+
+  // noteが更新される度にlocalstorageに保存する
+  useEffect(() => {
+    localStorage.setItem("notes", JSON.stringify(notes));
+  }, [notes]);
+
+  // デフォルトで一番上のノートが表示されるようにする
+  useEffect(() => {
+    setActiveNote(notes[0].id);
+  }, []);
 
   // 新規note作成
   const onAddNote = () => {
